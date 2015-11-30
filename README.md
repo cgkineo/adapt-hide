@@ -12,4 +12,14 @@ An extension to hide components on device sizes
 
 ###Notes
 
-Makes components ``_isAvailable: false`` adds ``display-none`` class to component div and refreshes PLP.
+* Makes components ``_isAvailable: false`` 
+* Adds ``display-none`` class to component div 
+* Refreshes PLP.
+
+###Effect
+* Stops component counting towards completion
+* Removes component from PLP
+* Hides component visually
+
+###Known Issues
+* IE8 videos will not work. They will stop the page from loading as the video needs to be onscreen to be in "ready" state.
