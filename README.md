@@ -12,4 +12,4 @@ An extension to hide components on device sizes
 
 ###Notes
 
-Makes components ``_isAvailable: false`` adds ``display-none`` class to component div and refreshed PLP.
+Makes components ``_isAvailable: false`` adds ``display-none`` class to component div and refreshes PLP.
