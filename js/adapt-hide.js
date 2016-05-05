@@ -3,9 +3,7 @@ define([
 ], function(Adapt) {
 
 	var postRenderEvent = ["article", "block", "component"].join("View:postRender ")+"View:postRender";
-
 	var managedViews = [];
-	var hiddenViews = [];
 
 	Adapt.on(postRenderEvent, function(view) {
 		var model = view.model;
@@ -16,7 +14,6 @@ define([
 		managedViews.push(view);
 
 		checkState(view);
-		
 	});
 
 	Adapt.on("pageView:ready", function() {
@@ -27,12 +24,6 @@ define([
 
 	Adapt.on("remove", function() {
 		managedViews.length = 0;
-		for (var i = 0, l = hiddenViews.length; i < l; i++) {
-			hiddenViews[i].set({
-				"_isAvailable": true
-			});
-		}
-		hiddenViews.length = 0;
 	});
 
 	function checkStates() {
@@ -48,20 +39,20 @@ define([
 	function checkState(view) {
 		var model = view.model;
 		var screenSize = Adapt.device.screenSize;
-
 		var hideOn = model.get("_hideOn");
 		var isHidden = hideOn.indexOf(screenSize) > -1;
+
 		if (isHidden) {
-			model.set("_isAvailable", false);
+			model.set({
+				"_isAvailable": false
+			});
 			view.$el.addClass("display-none");
-			hiddenViews.push(model);
 		} else {
 			model.set({
 				"_isAvailable": true
 			});
 			view.$el.removeClass("display-none");
 		}
-
 	}
 
 });
