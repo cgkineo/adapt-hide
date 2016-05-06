@@ -4,7 +4,7 @@ An extension to hide components on device sizes
 
 ## Installation
 
-* Add the following to `components.json`:
+* Add the following to *components.json*:
 ```json
 "_hideOn": "small medium large"
 ```
@@ -14,7 +14,7 @@ An extension to hide components on device sizes
 
 * Makes components ``_isAvailable: false`` 
 * Adds ``display-none`` class to component div 
-* Refreshes PLP.
+* Refreshes PLP. ``_showPageCompletion: false`` should be set in *course.json* for the **_pageLevelProgress** object. Failure to set this can result in the PLP showing as incomplete for returning sessions,  even though all visible components are marked as completed.
 
 ###Effect
 * Stops component counting towards completion
