@@ -1,5 +1,5 @@
 define([
-	"coreJS/adapt"
+	"core/js/adapt"
 ], function(Adapt) {
 
 	var postRenderEvent = ["article", "block", "component"].join("View:postRender ")+"View:postRender";
@@ -43,14 +43,10 @@ define([
 		var isHidden = hideOn.indexOf(screenSize) > -1;
 
 		if (isHidden) {
-			model.set({
-				"_isAvailable": false
-			});
+			model.setOnChildren("_isAvailable", false);
 			view.$el.addClass("display-none");
 		} else {
-			model.set({
-				"_isAvailable": true
-			});
+			model.setOnChildren("_isAvailable", true);
 			view.$el.removeClass("display-none");
 		}
 	}
