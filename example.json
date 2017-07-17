@@ -1,2 +1,21 @@
-//components
-"_hideOn": "small medium large"
+//articles/blocks/components
+
+"_hide": {
+  "_isEnabled": true,
+  "_isDynamic": true,
+  "_onMediaQuery": "(min-width: 768px)",
+  "_comment": "tablet / desktop size"
+}
+
+"_hide": {
+  "_isEnabled": true,
+  "_isDynamic": true,
+  "_onMediaQuery": "(max-width: 767px)",
+  "_comment": "mobile size"
+}
+
+"_hide": {
+  "_isEnabled": true,
+  "_isDynamic": true,
+  "_onClasses": ".os-android, .os-ios"
+}
