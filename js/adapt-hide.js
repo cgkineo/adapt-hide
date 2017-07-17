@@ -1,54 +1,94 @@
 define([
-	"core/js/adapt"
+    "core/js/adapt"
 ], function(Adapt) {
 
-	var postRenderEvent = ["article", "block", "component"].join("View:postRender ")+"View:postRender";
-	var managedViews = [];
+    var Hide = Backbone.Controller.extend({
 
-	Adapt.on(postRenderEvent, function(view) {
-		var model = view.model;
-		var hideOn = model.get("_hideOn");
-		
-		if (!hideOn) return;
+        postRenderEvent: ["article", "block", "component", ""].join("View:postRender "),
+        managedViews: [],
+        $html: null,
 
-		managedViews.push(view);
+        initialize: function() {
+            $(function() {
+                this.$html = $("html");
+            }.bind(this))
 
-		checkState(view);
-	});
+            this.listenTo(Adapt, this.postRenderEvent, this.onPostRender);
+            this.listenTo(Adapt, {
+                "pageView:ready": this.onPageReady,
+                "device:changed": this.checkStates
+            });
 
-	Adapt.on("pageView:ready", function() {
-		checkStates();
-	});
+            _.bindAll(this, "triggerResize");
+            this.triggerResize = _.debounce(this.triggerResize, 250);
+        },
 
-	Adapt.on("device:changed", checkStates);
+        onPostRender: function(view) {
+            var model = view.model;
+            var config = model.get("_hide");
 
-	Adapt.on("remove", function() {
-		managedViews.length = 0;
-	});
+            if (config) console.log(config);
+            
+            if (!config || !config._isEnabled) return;
+            
+            this.managedViews.push(view);
+            this.checkState(view);
+        },
 
-	function checkStates() {
-		if (managedViews.length === 0) return;
+        checkState: function(view) {
+            var model = view.model;
+            var config = model.get("_hide");
 
-		for (var i = 0, l = managedViews.length; i < l; i++) {
-			checkState(managedViews[i]);
-		}
+            if (!config._isEnabled) return;
+            if (config._isDynamic === false && config._isEvaluated) return;
 
-		Adapt.trigger("pageLevelProgress:update");
-	}
+            config._isEvaluated = true;
 
-	function checkState(view) {
-		var model = view.model;
-		var screenSize = Adapt.device.screenSize;
-		var hideOn = model.get("_hideOn");
-		var isHidden = hideOn.indexOf(screenSize) > -1;
+            var hideOnClasses = config._onClasses;
+            var hideOnMediaQuery = config._onMediaQuery;
 
-		if (isHidden) {
-			model.setOnChildren("_isAvailable", false);
-			view.$el.addClass("display-none");
-		} else {
-			model.setOnChildren("_isAvailable", true);
-			view.$el.removeClass("display-none");
-		}
-	}
+            var isHiddenOnClasses = !hideOnClasses || (hideOnClasses && this.$html.is(hideOnClasses));
+            var isHiddenOnMediaQuery = !hideOnMediaQuery || (hideOnMediaQuery && window.matchMedia && window.matchMedia(hideOnMediaQuery).matches);
+
+            var isHidden = (isHiddenOnClasses && isHiddenOnMediaQuery);
+
+            if (isHidden) {
+                model.setOnChildren("_isAvailable", false);
+                view.$el.addClass("display-none");
+                return;
+            }
+
+            model.setOnChildren("_isAvailable", true);
+            view.$el.removeClass("display-none");
+
+            this.triggerResize();
+
+        },
+
+        onPageReady: function() {
+            this.checkStates();
+        },
+
+        checkStates: function() {
+            if (!this.managedViews.length) return;
+
+            this.managedViews.forEach(function(view) {
+                this.checkState(view);
+            }.bind(this));
+
+            Adapt.trigger("pageLevelProgress:update");
+        },
+
+        triggerResize: function() {
+            $(window).resize();
+        },
+
+        remove: function() {
+            this.managedViews.length = 0;
+        }
+
+    });
+
+    return new Hide();
 
 });
