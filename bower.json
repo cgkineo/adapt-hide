@@ -1,6 +1,6 @@
 {
   "name": "adapt-hide",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "framework": "^2.0.0",
   "description": "An extension to hide articles/blocks/components based on device size",
   "displayName": "Hide",
