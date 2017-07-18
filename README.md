@@ -27,6 +27,13 @@ An extension to hide articles/blocks/components on device sizes
   "_onClasses": ".os-android, .os-ios"
 }
 
+
+"_hide": {
+  "_isEnabled": true,
+  "_isDynamic": true,
+  "_proxyId": "c-100"
+}
+
 ```
 * Copy the extension folder into the src > extensions directory and run an appropriate Grunt task.
 
@@ -57,6 +64,7 @@ An extension to hide articles/blocks/components on device sizes
 * Makes components ``_isAvailable: false`` 
 * Adds ``display-none`` class to component div 
 * Refreshes PLP. ``_showPageCompletion: false`` should be set in *course.json* for the **_pageLevelProgress** object. Failure to set this can result in the PLP showing as incomplete for returning sessions,  even though all visible components are marked as completed.
+* Completes ``_proxyId`` model
   
 ### Effect
 * Stops article/block/component counting towards completion
