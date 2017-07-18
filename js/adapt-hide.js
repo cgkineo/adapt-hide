@@ -27,8 +27,6 @@ define([
             var model = view.model;
             var config = model.get("_hide");
 
-            if (config) console.log(config);
-            
             if (!config || !config._isEnabled) return;
             
             this.managedViews.push(view);
