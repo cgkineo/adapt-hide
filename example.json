@@ -4,18 +4,25 @@
   "_isEnabled": true,
   "_isDynamic": true,
   "_onMediaQuery": "(min-width: 768px)",
-  "_comment": "tablet / desktop size"
+  "_onClasses": "",
+  "_proxyId": "",
+  "_comment": "hide on tablet / desktop"
 }
 
 "_hide": {
   "_isEnabled": true,
   "_isDynamic": true,
   "_onMediaQuery": "(max-width: 767px)",
-  "_comment": "mobile size"
+  "_onClasses": "",
+  "_proxyId": "",
+  "_comment": "hide on mobile"
 }
 
 "_hide": {
   "_isEnabled": true,
   "_isDynamic": true,
-  "_onClasses": ".os-android, .os-ios"
+  "_onMediaQuery": "",
+  "_onClasses": ".os-android, .os-ios",
+  "_proxyId": "",
+  "_comment": "hide on android or ios"
 }
