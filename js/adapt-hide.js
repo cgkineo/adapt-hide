@@ -82,6 +82,9 @@ define([
         },
 
         remove: function() {
+            this.managedViews.forEach(function(view) {
+                view.model.setOnChildren("_isAvailable", true);
+            });
             this.managedViews.length = 0;
         }
 
