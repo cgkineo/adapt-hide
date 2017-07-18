@@ -29,13 +29,12 @@ define([
 
             if (!config || !config._isEnabled) return;
             
-            this.listenTo(model, "change:_isComplete", this.onComplete);
+            this.listenTo(model, "change:_isInteractionComplete", this.onComplete);
             this.managedViews.push(view);
             this.checkState(view);
         },
         
         onComplete: function(model, val) {
-            var model = view.model;
             var config = model.get("_hide");
 
             if (!config || !config._isEnabled) return;
@@ -43,8 +42,7 @@ define([
             
             var proxyModel = Adapt.findById(config._proxyId);
             if (!proxyModel) return;
-            if (proxyModel.get("_isComplete") === val) return;
-            proxyModel.set("_isComplete", val);
+            proxyModel.setOnChildren("_isComplete", val);
         },
 
         checkState: function(view) {

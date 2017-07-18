@@ -43,9 +43,9 @@
                 "_proxyId": {
                   "type": "string",
                   "default": "",
-                  "title": "Proxy component Id",
+                  "title": "Proxy Id",
                   "inputType": "Text",
-                  "help": "Proxy component to complete when this one completes"
+                  "help": "Proxy id to complete when this one completes"
                 }
               }
             }
@@ -87,9 +87,9 @@
                 "_proxyId": {
                   "type": "string",
                   "default": "",
-                  "title": "Proxy component Id",
+                  "title": "Proxy Id",
                   "inputType": "Text",
-                  "help": "Proxy component to complete when this one completes"
+                  "help": "Proxy id to complete when this one completes"
                 }
               }
             }
@@ -132,9 +132,9 @@
                 "_proxyId": {
                   "type": "string",
                   "default": "",
-                  "title": "Proxy component Id",
+                  "title": "Proxy Id",
                   "inputType": "Text",
-                  "help": "Proxy component to complete when this one completes"
+                  "help": "Proxy id to complete when this one completes"
                 }
               }
             }
