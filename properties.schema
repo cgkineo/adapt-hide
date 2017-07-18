@@ -1,0 +1,125 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties":{
+    "pluginLocations": {
+      "type":"object",
+      "properties":{
+        "article": {
+          "type":"object",
+          "properties":{
+            "_trickle": {
+              "type":"object",
+              "legend": "Hide",
+              "properties":{
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "title": "Enable hide",
+                  "inputType": "Checkbox",
+                },
+                "_isDynamic": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Update on resize",
+                  "inputType": "Checkbox",
+                },
+                "_onMediaQuery": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Hide on media query",
+                  "inputType": "Text",
+                  "help": "Media Query for when to hide"
+                },
+                "_onClasses": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Hide on HTML classes",
+                  "inputType": "Text",
+                  "help": "HTML selector for when to hide"
+                }
+              }
+            }
+          }
+        },
+        "block": {
+          "type":"object",
+          "properties":{
+            "_trickle": {
+              "type":"object",
+              "legend": "Hide",
+              "properties":{
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "title": "Enable hide",
+                  "inputType": "Checkbox",
+                },
+                "_isDynamic": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Update on resize",
+                  "inputType": "Checkbox",
+                },
+                "_onMediaQuery": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Hide on media query",
+                  "inputType": "Text",
+                  "help": "Media Query for when to hide"
+                },
+                "_onClasses": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Hide on HTML classes",
+                  "inputType": "Text",
+                  "help": "HTML selector for when to hide"
+                }
+              }
+            }
+          }
+        },
+        "component": {
+          "type":"object",
+          "properties":{
+            "_trickle": {
+              "type":"object",
+              "required":false,
+              "legend": "Hide",
+              "properties":{
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "title": "Enable hide",
+                  "inputType": "Checkbox",
+                },
+                "_isDynamic": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Update on resize",
+                  "inputType": "Checkbox",
+                },
+                "_onMediaQuery": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Hide on media query",
+                  "inputType": "Text",
+                  "help": "Media Query for when to hide"
+                },
+                "_onClasses": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Hide on HTML classes",
+                  "inputType": "Text",
+                  "help": "HTML selector for when to hide"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
