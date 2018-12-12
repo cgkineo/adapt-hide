@@ -1,14 +1,17 @@
 {
-	"name": "adapt-hide",
-	"version": "0.1.1",
-	"framework": "^2.0.0",
-	"description": "An extension to hide articles/blocks/components based on device size",
-	"main": "/js/adapt-hide.js",
-	"keywords": [
-		"adapt-plugin",
-		"adapt-extension"
-	],
-	"authors": [],
-	"license": "GPLv3",
-	"homepage": "https://github.com/cgkineo/adapt-hide"
+  "name": "adapt-hide",
+  "version": "1.0.0",
+  "framework": "^2.0.0",
+  "description": "An extension to hide articles/blocks/components based on device size",
+  "displayName": "Hide",
+  "extension": "hide",
+  "targetAttribute": "_hide",
+  "main": "/js/adapt-hide.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "authors": [],
+  "license": "GPLv3",
+  "homepage": "https://github.com/cgkineo/adapt-hide"
 }
