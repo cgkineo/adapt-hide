@@ -1,53 +1,53 @@
 define([
-    "core/js/adapt"
+    'core/js/adapt'
 ], function(Adapt) {
 
     var Hide = Backbone.Controller.extend({
 
-        postRenderEvent: ["article", "block", "component", ""].join("View:postRender "),
+        postRenderEvent: ['article', 'block', 'component', ''].join('View:postRender '),
         managedViews: [],
         $html: null,
 
         initialize: function() {
             $(function() {
-                this.$html = $("html");
-            }.bind(this))
+                this.$html = $('html');
+            }.bind(this));
 
             this.listenTo(Adapt, this.postRenderEvent, this.onPostRender);
             this.listenTo(Adapt, {
-                "pageView:ready": this.onPageReady,
-                "device:changed": this.checkStates
+                'pageView:ready': this.onPageReady,
+                'device:changed': this.checkStates
             });
 
-            _.bindAll(this, "triggerResize");
+            _.bindAll(this, 'triggerResize');
             this.triggerResize = _.debounce(this.triggerResize, 250);
         },
 
         onPostRender: function(view) {
             var model = view.model;
-            var config = model.get("_hide");
+            var config = model.get('_hide');
 
             if (!config || !config._isEnabled) return;
-            
-            this.listenTo(model, "change:_isInteractionComplete", this.onComplete);
+
+            this.listenTo(model, 'change:_isInteractionComplete', this.onComplete);
             this.managedViews.push(view);
             this.checkState(view);
         },
-        
+
         onComplete: function(model, val) {
-            var config = model.get("_hide");
+            var config = model.get('_hide');
 
             if (!config || !config._isEnabled) return;
             if (!config._proxyId) return;
-            
+
             var proxyModel = Adapt.findById(config._proxyId);
             if (!proxyModel) return;
-            proxyModel.setOnChildren("_isComplete", val);
+            proxyModel.setOnChildren('_isComplete', val);
         },
 
         checkState: function(view) {
             var model = view.model;
-            var config = model.get("_hide");
+            var config = model.get('_hide');
 
             if (!config._isEnabled) return;
             if (config._isDynamic === false && config._isEvaluated) return;
@@ -63,13 +63,13 @@ define([
             var isHidden = (isHiddenOnClasses && isHiddenOnMediaQuery);
 
             if (isHidden) {
-                model.setOnChildren("_isAvailable", false);
-                view.$el.addClass("u-display-none");
+                model.setOnChildren('_isAvailable', false);
+                view.$el.addClass('u-display-none');
                 return;
             }
 
-            model.setOnChildren("_isAvailable", true);
-            view.$el.removeClass("u-display-none");
+            model.setOnChildren('_isAvailable', true);
+            view.$el.removeClass('u-display-none');
 
             this.triggerResize();
 
@@ -86,7 +86,7 @@ define([
                 this.checkState(view);
             }.bind(this));
 
-            Adapt.trigger("pageLevelProgress:update");
+            Adapt.trigger('pageLevelProgress:update');
         },
 
         triggerResize: function() {
@@ -95,7 +95,7 @@ define([
 
         remove: function() {
             this.managedViews.forEach(function(view) {
-                view.model.setOnChildren("_isAvailable", true);
+                view.model.setOnChildren('_isAvailable', true);
                 this.stopListening(view.model);
             }.bind(this));
             this.managedViews.length = 0;
