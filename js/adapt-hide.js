@@ -64,12 +64,12 @@ define([
 
             if (isHidden) {
                 model.setOnChildren("_isAvailable", false);
-                view.$el.addClass("display-none");
+                view.$el.addClass("u-display-none");
                 return;
             }
 
             model.setOnChildren("_isAvailable", true);
-            view.$el.removeClass("display-none");
+            view.$el.removeClass("u-display-none");
 
             this.triggerResize();
 
