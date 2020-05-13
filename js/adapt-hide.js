@@ -19,8 +19,7 @@ define([
         'device:changed': this.checkStates
       });
 
-      _.bindAll(this, 'triggerResize');
-      this.triggerResize = _.debounce(this.triggerResize, 250);
+      this.triggerResize = _.debounce(this.triggerResize.bind(this), 250);
     },
 
     onPostRender: function(view) {
