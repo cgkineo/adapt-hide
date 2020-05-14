@@ -10,7 +10,7 @@
         "article": {
           "type": "object",
           "properties": {
-            "_trickle": {
+            "_hide": {
               "type": "object",
               "legend": "Hide",
               "properties": {
@@ -54,7 +54,7 @@
         "block": {
           "type": "object",
           "properties": {
-            "_trickle": {
+            "_hide": {
               "type": "object",
               "legend": "Hide",
               "properties": {
@@ -98,7 +98,7 @@
         "component": {
           "type": "object",
           "properties": {
-            "_trickle": {
+            "_hide": {
               "type": "object",
               "required": false,
               "legend": "Hide",
