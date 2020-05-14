@@ -1,30 +1,30 @@
 {
-  "type":"object",
+  "type": "object",
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
-  "required":false,
-  "properties":{
+  "required": false,
+  "properties": {
     "pluginLocations": {
-      "type":"object",
-      "properties":{
+      "type": "object",
+      "properties": {
         "article": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_trickle": {
-              "type":"object",
+              "type": "object",
               "legend": "Hide",
-              "properties":{
+              "properties": {
                 "_isEnabled": {
                   "type": "boolean",
                   "default": false,
                   "title": "Enable hide",
-                  "inputType": "Checkbox",
+                  "inputType": "Checkbox"
                 },
                 "_isDynamic": {
                   "type": "boolean",
                   "default": true,
                   "title": "Update on resize",
-                  "inputType": "Checkbox",
+                  "inputType": "Checkbox"
                 },
                 "_onMediaQuery": {
                   "type": "string",
@@ -52,23 +52,23 @@
           }
         },
         "block": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_trickle": {
-              "type":"object",
+              "type": "object",
               "legend": "Hide",
-              "properties":{
+              "properties": {
                 "_isEnabled": {
                   "type": "boolean",
                   "default": false,
                   "title": "Enable hide",
-                  "inputType": "Checkbox",
+                  "inputType": "Checkbox"
                 },
                 "_isDynamic": {
                   "type": "boolean",
                   "default": true,
                   "title": "Update on resize",
-                  "inputType": "Checkbox",
+                  "inputType": "Checkbox"
                 },
                 "_onMediaQuery": {
                   "type": "string",
@@ -96,24 +96,24 @@
           }
         },
         "component": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_trickle": {
-              "type":"object",
-              "required":false,
+              "type": "object",
+              "required": false,
               "legend": "Hide",
-              "properties":{
+              "properties": {
                 "_isEnabled": {
                   "type": "boolean",
                   "default": false,
                   "title": "Enable hide",
-                  "inputType": "Checkbox",
+                  "inputType": "Checkbox"
                 },
                 "_isDynamic": {
                   "type": "boolean",
                   "default": true,
                   "title": "Update on resize",
-                  "inputType": "Checkbox",
+                  "inputType": "Checkbox"
                 },
                 "_onMediaQuery": {
                   "type": "string",
