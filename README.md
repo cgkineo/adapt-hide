@@ -61,19 +61,13 @@ An extension to hide articles/blocks/components on device sizes
 
 ### Notes
 
-* Makes components ``_isAvailable: false``
-* Adds ``display-none`` class to component div
-* Refreshes PLP. ``_showPageCompletion: false`` should be set in *course.json* for the **_pageLevelProgress** object. Failure to set this can result in the PLP showing as incomplete for returning sessions,  even though all visible components are marked as completed.
-* Completes ``_proxyId`` model
+* Makes components `_isAvailable: false`
+* Adds `u-display-none` class to component `<div>`
+* Refreshes PLP. `_showPageCompletion: false` should be set in *course.json* for the **\_pageLevelProgress** object. Failure to set this can result in the PLP showing as incomplete for returning sessions, even though all visible components are marked as completed.
+* Completes `_proxyId` model
 * `_isDynamic` = Update on resize
 
 ### Effect
 * Stops article/block/component counting towards completion
 * Removes component from PLP
 * Hides component visually
-
-### Known Issues
-* IE8 videos will not work. They will stop the page from loading as the video needs to be onscreen to be in "ready" state.
-* onMediaQuery isn't supported in <=IE9
-* The Force Load extension should be disabled for PLP to update correctly.
-
